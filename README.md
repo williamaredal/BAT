@@ -26,7 +26,7 @@ pipenv install
 pipenv shell
 python wsgi.py
 ```
-Now BAT should be running and accessible on ```http://localhost:8000``` if the port was not changed
+Now BAT should be running and accessible on ```http://localhost:8000``` unless the port was changed
 
 ## Step 5:
 Create a user, and/or log in. Then, using the input terminal, you can run the functions listed below:
@@ -45,6 +45,6 @@ Create a user, and/or log in. Then, using the input terminal, you can run the fu
 The commands above, except and ```logout``` can also be run using the first letter in the command name. For example:
 ```
  -t
- -fm (fillmodel
+ -fm (fillmodel)
 [dossier title (optional)] -m
 ```
