@@ -1,0 +1,25 @@
+.update-title {
+    margin: 5px;
+    padding: 2px;
+    border: 2px thin;
+    border-radius: 8px;
+    width: 250px;
+}
+
+.update {
+    padding: 2px;
+    margin: 5px;
+    border-radius: 8px;
+    border: solid;
+    border-color: #485063;
+    width: 600px;
+    height: 180px;
+}
+
+.button {
+    padding: 3px 5px 3px 5px;
+    margin: 2px;
+    border: 2px solid;
+    border-radius: 8px;
+    background-color: white;
+}

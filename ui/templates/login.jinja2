@@ -1,0 +1,53 @@
+{% extends "layout.jinja2" %}
+
+{% block content %}
+    {% block pagestyles %}
+      <link href="{{ url_for('static', filename='dist/css/login.css') }}" rel="stylesheet" type="text/css">
+    {% endblock %}
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <h1>Log In</h1>
+
+    <form method="POST" action="/login" autocomplete="off">
+        {{ form.csrf_token }}
+
+        <formfield class="username">
+            {{ form.username(placeholder='Username', class_="auth") }}
+            {% if form.username.errors %}
+                <ul class="errors">
+                    {% for error in form.username.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </formfield>
+
+        <br>
+
+        <formfield class="password">
+            {{ form.password(placeholder='Password', class_="auth") }}
+            {% if form.username.errors %}
+                <ul class="errors">
+                    {% for error in form.password.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </formfield>
+
+        <div class="submit-button">
+            {{ form.submit(class_="button") }}
+        </div>
+
+        <div class="login-signup">
+            <span>Don't have an account? <a class="button" href="{{ url_for('auth_bp.signup') }}">Sign up.</a></span>
+        </div>
+
+    </form>
+
+{% endblock %}

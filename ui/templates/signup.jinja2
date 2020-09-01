@@ -1,0 +1,70 @@
+{% extends "layout.jinja2" %}
+
+{% block content %}
+    {% block pagestyles %}
+      <link href="{{ url_for('static', filename='dist/css/signup.css') }}" rel="stylesheet" type="text/css">
+    {% endblock %}
+
+    <div class="form-wrapper">
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <h1>Sign up</h1>
+
+        <form action="/signup" method="POST" autocomplete="off">
+            {{ form.csrf_token }}
+
+            <formfield class="username">
+                {{ form.username(placeholder='Username', class_="signup") }}
+                {% if form.username.errors %}
+                    <ul class="errors">
+                        {% for error in form.username.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </formfield>
+
+            <br>
+
+            <formfield class="password">
+                {{ form.password(placeholder='Password', class_="signup") }}
+                {% if form.password.errors %}
+                    <ul class="errors">
+                        {% for error in form.password.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </formfield>
+
+            <br>
+
+            <formfield class="confirm">
+                {{ form.confirm(placeholder='Confirm Password', class_="signup") }}
+                {% if form.confirm.errors %}
+                    <ul class="errors">
+                        {% for error in form.confirm.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </formfield>
+
+            <br>
+
+            <div class="submit-button">
+                {{ form.submit( class_="button") }}
+            </div>
+
+            <div class="login-signup">
+                <span>Already have an account? <a class="button" href="{{ url_for('auth_bp.login') }}">Log in.</a></span>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

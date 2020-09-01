@@ -1,0 +1,56 @@
+{% extends "layout.jinja2" %}
+
+{% block pagestyles %}
+  <link href="{{ url_for('static', filename='dist/css/update.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+
+  {% if current_user.is_authenticated %}
+
+      {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+      {% endfor %}
+
+    <form method="POST" action="/update" autocomplete="off">
+      {{ form.csrf_token }}
+      <formfield class="title">
+        {{ form.title(placeholder='Dossier title', class_="update-title") }}
+      </formfield>
+
+      <br>
+
+      <formfield class="protocol">
+        {{ form.protocol(placeholder='Dossier protocol', class_="update") }}
+      </formfield>
+
+      <br>
+
+      <formfield class="poi">
+        {{ form.poi(placeholder='Persons of interest', class_="update") }}
+      </formfield>
+
+      <br>
+
+      <formfield class="attachment">
+        {{ form.attachment(placeholder='Dossier attachments', class_="update") }}
+      </formfield>
+
+      <br>
+
+      <div class="submit-button">
+        {{ form.submit(class_="button") }}
+      </div> 
+
+    </form>
+
+      <div class="cancel-button">
+        <button class="button" type="button" onClick="window.location.href='{{ url_for('main_bp.dashboard') }}'">Cancel</button>
+      </div> 
+
+  {% endif %}
+
+{% endblock %}

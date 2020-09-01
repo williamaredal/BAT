@@ -1,0 +1,28 @@
+/flasklogin-tutorial
+├── /flask_login_tutorial
+│   ├── __init__.py
+│   ├── assets.py
+│   ├── auth.py
+│   ├── forms.py
+│   ├── function.py
+│   ├── models.py
+│   ├── routes.py
+│   ├── /static/dist/css
+│   └── /templates
+├── .env
+├── config.py
+├── Pipfile
+├── Pipfile.lock
+├── start.sh
+├── structure.txt
+└── wsgi.py
+
+
+/Scripts:
+├── pipenv install       (installs required packages from pipfile)
+├── pipenv install []    (installs and adds package to pipfile)
+├── pipenv synch -d      (installs packages from pipfile development list)
+├── pipenv install -d [] (installs and adds package to pipfile development list)
+├── pipenv shell         (starts pipenv environment)
+├── pipenv --rm          (removes local pipenv environment)
+└── python wsgi.py       (starts the BAT server)

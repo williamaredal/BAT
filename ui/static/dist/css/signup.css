@@ -1,0 +1,14 @@
+
+.signup {
+    margin: 2px;
+    padding: 2px;
+    border: 2px thin;
+    border-radius: 8px;
+}
+
+.button {
+    padding: 2px;
+    border: 2px solid;
+    border-radius: 8px;
+    background-color: white;
+}

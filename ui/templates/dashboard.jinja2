@@ -1,0 +1,38 @@
+{% extends "layout.jinja2" %}
+
+{% block pagestyles %}
+  <link href="{{ url_for('static', filename='dist/css/dashboard.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+
+  {% if current_user.is_authenticated %}
+    <div class="form_wrapper">
+    
+    <form method="POST" action="/" autocomplete="off">
+      {{ form.csrf_token }}
+      <formfield class="terminal">
+        {{ form.terminal( class_="dashboard") }}
+      </formfield>
+    </form>
+
+    {% for message in get_flashed_messages() %}
+      <div class="alert alert-warning">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ message }}
+      </div>
+    {% endfor %}
+
+    <div class="results">
+
+      {% for result in results %}
+        <div class="result">
+            {{ result }}
+        </div>
+      {% endfor %}
+
+    </div>
+
+  {% endif %}
+
+{% endblock %}
