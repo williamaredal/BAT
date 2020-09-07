@@ -17,7 +17,7 @@ class SignupForm(FlaskForm):
         'Password',
         validators=[
             DataRequired(),
-            Length(min=6, message='Select a stronger password.')
+            Length(min=8, message='Select a stronger password.')
         ]
     )
 
